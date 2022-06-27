@@ -11,9 +11,28 @@ const App = () => {
 
   const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
 
+  const nextWeekChange = () => {
+    const nextWeek = new Date(weekStartDate).setDate(weekStartDate.getDate() + 7);
+    setWeekStartDate(new Date(nextWeek));
+  };
+
+  const prevWeekChange = () => {
+    const prevWeek = new Date(weekStartDate).setDate(weekStartDate.getDate() - 7);
+    setWeekStartDate(new Date(prevWeek));
+  };
+
+  const todayWeek = () => {
+    setWeekStartDate(new Date());
+  };
+
   return (
     <>
-      <Header />
+      <Header
+        nextWeek={nextWeekChange}
+        prevWeek={prevWeekChange}
+        todayWeek={todayWeek}
+        weekStartDate={weekStartDate}
+      />
       <Calendar weekDates={weekDates} />
     </>
   );
