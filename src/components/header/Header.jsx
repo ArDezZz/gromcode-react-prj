@@ -4,7 +4,7 @@ import moment from 'moment';
 import './header.scss';
 
 const Header = ({ nextWeek, prevWeek, todayWeek, weekStartDate }) => {
-  const month = moment(weekStartDate).format('MMM');
+  const currentMonth = moment(weekStartDate).format('MMM');
 
   return (
     <header className="header">
@@ -21,7 +21,7 @@ const Header = ({ nextWeek, prevWeek, todayWeek, weekStartDate }) => {
         <button className="icon-button navigation__nav-icon" onClick={nextWeek}>
           <i className="fas fa-chevron-right"></i>
         </button>
-        <span className="navigation__displayed-month">{month}</span>
+        <span className="navigation__displayed-month">{currentMonth}</span>
       </div>
     </header>
   );
