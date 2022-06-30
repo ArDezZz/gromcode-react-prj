@@ -9,9 +9,8 @@ const Header = ({ nextWeek, prevWeek, todayWeek, weekStartDate }) => {
   const transitionOfWeeks =
     currentMonth !== new Date(nextMonth).getMonth()
       ? `${moment(weekStartDate).format('MMM')} - ${moment(nextMonth).format('MMM')}`
-      : `${moment(weekStartDate).format('MMM')}`;
+      : moment(weekStartDate).format('MMM');
 
-  console.log(weekStartDate);
   //algo:
   //1.узнать текущий месяц
   //2. узнать месяц следующего дня
