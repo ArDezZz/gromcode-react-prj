@@ -4,7 +4,19 @@ import moment from 'moment';
 import './header.scss';
 
 const Header = ({ nextWeek, prevWeek, todayWeek, weekStartDate }) => {
-  const currentMonth = moment(weekStartDate).format('MMM');
+  const currentMonth = new Date().getMonth();
+  const nextMonth = new Date(weekStartDate).setDate(weekStartDate.getDate() + 1);
+  const transitionOfWeeks =
+    currentMonth !== new Date(nextMonth).getMonth()
+      ? `${moment(weekStartDate).format('MMM')} - ${moment(nextMonth).format('MMM')}`
+      : `${moment(weekStartDate).format('MMM')}`;
+
+  console.log(weekStartDate);
+  //algo:
+  //1.узнать текущий месяц
+  //2. узнать месяц следующего дня
+  //3. сравнить их, если месяц не изменится - отобразить текущий месяц
+  //4. если месяц следующего дня другой - отобразить промежуток
 
   return (
     <header className="header">
@@ -21,7 +33,7 @@ const Header = ({ nextWeek, prevWeek, todayWeek, weekStartDate }) => {
         <button className="icon-button navigation__nav-icon" onClick={nextWeek}>
           <i className="fas fa-chevron-right"></i>
         </button>
-        <span className="navigation__displayed-month">{currentMonth}</span>
+        <span className="navigation__displayed-month">{transitionOfWeeks}</span>
       </div>
     </header>
   );
