@@ -1,25 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 
 import './header.scss';
+import Modal from '../modal/Modal';
 
-const Header = ({ nextWeek, prevWeek, todayWeek, weekStartDate }) => {
-  const currentMonth = new Date().getMonth();
-  const nextMonth = new Date(weekStartDate).setDate(weekStartDate.getDate() + 1);
-  const transitionOfWeeks =
-    currentMonth !== new Date(nextMonth).getMonth()
-      ? `${moment(weekStartDate).format('MMM')} - ${moment(nextMonth).format('MMM')}`
-      : moment(weekStartDate).format('MMM');
+const Header = ({ nextWeek, prevWeek, todayWeek, weekDates, changeMenu }) => {
+  const getWeekMonthString = weekDates => {
+    const weekStart = weekDates[0];
+    const weekEnd = weekDates[weekDates.length - 1];
+    const areDatesInSameMonth = weekStart.getMonth() === weekEnd.getMonth();
 
-  //algo:
-  //1.узнать текущий месяц
-  //2. узнать месяц следующего дня
-  //3. сравнить их, если месяц не изменится - отобразить текущий месяц
-  //4. если месяц следующего дня другой - отобразить промежуток
+    return areDatesInSameMonth
+      ? moment(weekStart).format('MMM')
+      : `${moment(weekStart).format('MMM')} – ${moment(weekEnd).format('MMM')}`;
+  };
 
   return (
     <header className="header">
-      <button className="button create-event-btn">
+      <button className="button create-event-btn" onClick={changeMenu}>
         <i className="fas fa-plus create-event-btn__icon"></i>Create
       </button>
       <div className="navigation">
@@ -32,7 +30,7 @@ const Header = ({ nextWeek, prevWeek, todayWeek, weekStartDate }) => {
         <button className="icon-button navigation__nav-icon" onClick={nextWeek}>
           <i className="fas fa-chevron-right"></i>
         </button>
-        <span className="navigation__displayed-month">{transitionOfWeeks}</span>
+        <span className="navigation__displayed-month">{getWeekMonthString(weekDates)}</span>
       </div>
     </header>
   );

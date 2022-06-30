@@ -25,15 +25,22 @@ const App = () => {
     setWeekStartDate(new Date());
   };
 
+  const [isVisible, changeEventVisible] = useState(false);
+
+  const changeMenu = () => {
+    changeEventVisible(!isVisible);
+  };
+
   return (
     <>
       <Header
+        weekDates={weekDates}
         nextWeek={nextWeekChange}
         prevWeek={prevWeekChange}
         todayWeek={todayWeek}
-        weekStartDate={weekStartDate}
+        changeMenu={changeMenu}
       />
-      <Calendar weekDates={weekDates} />
+      <Calendar weekDates={weekDates} isVisible={isVisible} changeMenu={changeMenu} />
     </>
   );
 };
