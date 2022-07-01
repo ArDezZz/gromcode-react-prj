@@ -8,6 +8,7 @@ import './common.scss';
 
 const App = () => {
   const [weekStartDate, setWeekStartDate] = useState(new Date());
+  const [isVisible, changeEventVisible] = useState(false);
 
   const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
 
@@ -25,9 +26,7 @@ const App = () => {
     setWeekStartDate(new Date());
   };
 
-  const [isVisible, changeEventVisible] = useState(false);
-
-  const changeMenu = () => {
+  const showCreateMenu = () => {
     changeEventVisible(!isVisible);
   };
 
@@ -38,9 +37,9 @@ const App = () => {
         nextWeek={nextWeekChange}
         prevWeek={prevWeekChange}
         todayWeek={todayWeek}
-        changeMenu={changeMenu}
+        showCreateMenu={showCreateMenu}
       />
-      <Calendar weekDates={weekDates} isVisible={isVisible} changeMenu={changeMenu} />
+      <Calendar weekDates={weekDates} isVisible={isVisible} showCreateMenu={showCreateMenu} />
     </>
   );
 };

@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import moment from 'moment';
 
 import './header.scss';
-import Modal from '../modal/Modal';
 
-const Header = ({ nextWeek, prevWeek, todayWeek, weekDates, changeMenu }) => {
+const Header = ({ nextWeek, prevWeek, todayWeek, weekDates, showCreateMenu }) => {
   const getWeekMonthString = weekDates => {
     const weekStart = weekDates[0];
     const weekEnd = weekDates[weekDates.length - 1];
@@ -17,7 +16,7 @@ const Header = ({ nextWeek, prevWeek, todayWeek, weekDates, changeMenu }) => {
 
   return (
     <header className="header">
-      <button className="button create-event-btn" onClick={changeMenu}>
+      <button className="button create-event-btn" onClick={showCreateMenu}>
         <i className="fas fa-plus create-event-btn__icon"></i>Create
       </button>
       <div className="navigation">

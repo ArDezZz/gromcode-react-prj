@@ -1,12 +1,12 @@
 import React from 'react';
 import './modal.scss';
 
-const Modal = ({ changeMenu }) => {
+const Modal = ({ showCreateMenu }) => {
   return (
     <div className="modal overlay">
       <div className="modal__content">
         <div className="create-event">
-          <button className="create-event__close-btn" onClick={changeMenu}>
+          <button className="create-event__close-btn" onClick={showCreateMenu}>
             +
           </button>
           <form className="event-form">

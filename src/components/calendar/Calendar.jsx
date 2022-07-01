@@ -8,12 +8,12 @@ import events from '../../gateway/events';
 import './calendar.scss';
 import Modal from '../modal/Modal';
 
-const Calendar = ({ weekDates, isVisible, changeMenu }) => {
+const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
   const [allEvents, setEvents] = useState(events);
 
   return (
     <section className="calendar">
-      {isVisible ? <Modal changeMenu={changeMenu} /> : null}
+      {isVisible ? <Modal showCreateMenu={showCreateMenu} /> : null}
       <Navigation weekDates={weekDates} />
       <div className="calendar__body">
         <div className="calendar__week-container">
