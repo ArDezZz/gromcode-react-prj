@@ -2,6 +2,12 @@ import React from 'react';
 import './modal.scss';
 
 const Modal = ({ showCreateMenu }) => {
+  const titleHandler = e => {
+    console.log(e.target.value);
+  };
+  const handleAddTask = e => {
+    e.preventDefault();
+  };
   return (
     <div className="modal overlay">
       <div className="modal__content">
@@ -10,7 +16,13 @@ const Modal = ({ showCreateMenu }) => {
             +
           </button>
           <form className="event-form">
-            <input type="text" name="title" placeholder="Title" className="event-form__field" />
+            <input
+              type="text"
+              name="title"
+              placeholder="Title"
+              className="event-form__field"
+              onClick={titleHandler}
+            />
             <div className="event-form__time">
               <input type="date" name="date" className="event-form__field" />
               <input
