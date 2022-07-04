@@ -9,6 +9,13 @@ import './common.scss';
 const App = () => {
   const [weekStartDate, setWeekStartDate] = useState(new Date());
   const [isVisible, changeEventVisible] = useState(false);
+  const [formData, setFormData] = useState({
+    id: '',
+    title: '',
+    description: '',
+    dateFrom: '',
+    dateTo: '',
+  });
 
   const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
 
