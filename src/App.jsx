@@ -16,7 +16,7 @@ const App = () => {
   //3 считываем данные с modal
   //4 пушим созданный объект в events
 
-  const createEvent = (value, e) => {
+  const createEvent = value => {
     const newEvent = {
       id: Math.ceil(Math.random() + Math.random()),
       title: value.title,
