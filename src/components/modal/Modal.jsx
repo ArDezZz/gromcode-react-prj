@@ -1,13 +1,26 @@
 import React from 'react';
 import './modal.scss';
+import { useState } from 'react';
 
-const Modal = ({ showCreateMenu }) => {
-  const titleHandler = e => {
-    console.log(e.target.value);
+const Modal = ({ showCreateMenu, createEvent }) => {
+  const [formDatas, setFormData] = useState({
+    title: '',
+    description: '',
+    date: '',
+    dateFrom: '',
+    dateTo: '',
+  });
+
+  const handleChange = event => {
+    setFormData({ [event.target.name]: event.target.value });
   };
+
   const handleAddTask = e => {
     e.preventDefault();
+    createEvent(formDatas, e);
+    showCreateMenu();
   };
+  console.log(formDatas);
   return (
     <div className="modal overlay">
       <div className="modal__content">
@@ -15,31 +28,42 @@ const Modal = ({ showCreateMenu }) => {
           <button className="create-event__close-btn" onClick={showCreateMenu}>
             +
           </button>
-          <form className="event-form">
+          <form className="event-form" onSubmit={handleAddTask}>
             <input
               type="text"
               name="title"
               placeholder="Title"
+              onChange={handleChange}
               className="event-form__field"
-              onClick={titleHandler}
             />
             <div className="event-form__time">
-              <input type="date" name="date" className="event-form__field" />
+              <input
+                type="date"
+                name="date"
+                className="event-form__field"
+                onChange={handleChange}
+              />
               <input
                 type="time"
                 name="startTime"
                 className="event-form__field"
-                // onChange={handleChange}
+                onChange={handleChange}
               />
               <span>-</span>
-              <input type="time" name="endTime" className="event-form__field" />
+              <input
+                type="time"
+                name="endTime"
+                className="event-form__field"
+                onChange={handleChange}
+              />
             </div>
             <textarea
               name="description"
               placeholder="Description"
               className="event-form__field"
+              onChange={handleChange}
             ></textarea>
-            <button type="submit" className="event-form__submit-btn" onSubmit={() => handleAddTask}>
+            <button type="submit" className="event-form__submit-btn">
               Create
             </button>
           </form>

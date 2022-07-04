@@ -3,19 +3,30 @@ import Header from './components/header/Header.jsx';
 import Calendar from './components/calendar/Calendar.jsx';
 
 import { getWeekStartDate, generateWeekRange } from '../src/utils/dateUtils.js';
-
+import events from './gateway/events.js';
 import './common.scss';
 
 const App = () => {
   const [weekStartDate, setWeekStartDate] = useState(new Date());
   const [isVisible, changeEventVisible] = useState(false);
-  const [formData, setFormData] = useState({
-    id: '',
-    title: '',
-    description: '',
-    dateFrom: '',
-    dateTo: '',
-  });
+
+  // algo CreateEvent
+  //1 создаем функцию createEvent в App
+  //2 прокидываем функцию в modal
+  //3 считываем данные с modal
+  //4 пушим созданный объект в events
+
+  const createEvent = (value, e) => {
+    const newEvent = {
+      id: Math.ceil(Math.random() + Math.random()),
+      title: value.title,
+      description: value.description,
+      startTime: value.startTime,
+      finishTime: value.finishTime,
+    };
+    console.log(newEvent);
+    events.push(newEvent);
+  };
 
   const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
 
@@ -46,7 +57,12 @@ const App = () => {
         todayWeek={todayWeek}
         showCreateMenu={showCreateMenu}
       />
-      <Calendar weekDates={weekDates} isVisible={isVisible} showCreateMenu={showCreateMenu} />
+      <Calendar
+        weekDates={weekDates}
+        isVisible={isVisible}
+        showCreateMenu={showCreateMenu}
+        createEvent={createEvent}
+      />
     </>
   );
 };
