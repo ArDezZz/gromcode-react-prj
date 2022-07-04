@@ -25,7 +25,6 @@ const App = () => {
       dateTo: new Date(value.dateTo),
       description: value.description,
     };
-    console.log(newEvent);
     events.push(newEvent);
   };
 

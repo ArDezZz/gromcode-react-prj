@@ -25,7 +25,8 @@ const Modal = ({ showCreateMenu, createEvent }) => {
       dateFrom: new Date(`${date} ${startTime}`).getTime(),
       dateTo: new Date(`${date} ${endTime}`).getTime(),
     };
-
+    console.log(newEvent.dateFrom);
+    console.log(newEvent.dateTo);
     createEvent(newEvent);
     showCreateMenu();
   };
