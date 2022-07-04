@@ -18,11 +18,12 @@ const App = () => {
 
   const createEvent = value => {
     const newEvent = {
-      id: Math.ceil(Math.random() + Math.random()),
+      id: Math.random(),
       title: value.title,
+      date: new Date(value.date),
+      dateFrom: new Date(value.dateFrom),
+      dateTo: new Date(value.dateTo),
       description: value.description,
-      startTime: value.startTime,
-      finishTime: value.finishTime,
     };
     console.log(newEvent);
     events.push(newEvent);

@@ -7,20 +7,29 @@ const Modal = ({ showCreateMenu, createEvent }) => {
     title: '',
     description: '',
     date: '',
-    dateFrom: '',
-    dateTo: '',
+    startTime: '',
+    endTime: '',
   });
 
   const handleChange = event => {
-    setFormData({ [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+    setFormData({ ...formDatas, [name]: value });
   };
 
   const handleAddTask = e => {
     e.preventDefault();
-    createEvent(formDatas, e);
+    const { title, description, date, startTime, endTime } = formDatas;
+    const newEvent = {
+      title,
+      description,
+      dateFrom: new Date(`${date} ${startTime}`).getTime(),
+      dateTo: new Date(`${date} ${endTime}`).getTime(),
+    };
+
+    createEvent(newEvent);
     showCreateMenu();
   };
-  console.log(formDatas);
+
   return (
     <div className="modal overlay">
       <div className="modal__content">
