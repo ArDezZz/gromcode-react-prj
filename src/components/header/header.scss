@@ -6,10 +6,15 @@
 }
 
 .create-event-btn {
+  font-size: 1.5em;
   padding: 0 16px;
-  background-color: cornflowerblue;
+  background-color: #27282c;
   color: white;
-
+  letter-spacing: 0.1em;
+  &:hover {
+    box-shadow: 0 0 35px #1e9bff;
+    background-color: #1e9bff;
+  }
   &__icon {
     margin-right: 8px;
   }
@@ -19,8 +24,14 @@
   &__today-btn {
     margin-left: 32px;
     padding: 0 16px;
-    background-color: cornflowerblue;
+    background-color: #27282c;
+    letter-spacing: 0.1em;
     color: white;
+    &:hover {
+      background-color: #1e9bff;
+
+      box-shadow: 0 0 35px #1e9bff;
+    }
   }
 
   &__nav-icon {
