@@ -21,9 +21,9 @@ const Modal = ({ showCreateMenu, createEvent }) => {
     const { title, description, date, startTime, endTime } = formDatas;
     const newEvent = {
       title,
+      dateFrom: new Date(new Date(`${date} ${startTime}`).getTime()),
+      dateTo: new Date(new Date(`${date} ${endTime}`).getTime()),
       description,
-      dateFrom: new Date(`${date} ${startTime}`).getTime(),
-      dateTo: new Date(`${date} ${endTime}`).getTime(),
     };
 
     createEvent(newEvent);

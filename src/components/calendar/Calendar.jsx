@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Navigation from './../navigation/Navigation';
 import Week from '../week/Week';
@@ -7,27 +7,27 @@ import Sidebar from '../sidebar/Sidebar';
 import './calendar.scss';
 import Modal from '../modal/Modal';
 
-const Calendar = ({ weekDates, isVisible, showCreateMenu, weekStartDate }) => {
-  const [allEvents, setEvents] = useState([
-    {
-      id: 1,
-      title: 'Go to the gym',
-      description: 'some text here',
-      dateFrom: new Date(2022, 6, 4, 10, 15),
-      dateTo: new Date(2022, 6, 4, 12, 0),
-    },
-  ]);
+const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
+  const [allEvents, setEvents] = useState([]);
+  const baseUrl = 'https://62c5975d134fa108c256f212.mockapi.io/Calendar';
 
-  const createEvent = value => {
-    const newEvent = {
-      id: Math.random(),
-      title: value.title,
-      date: new Date(value.date),
-      dateFrom: new Date(value.dateFrom),
-      dateTo: new Date(value.dateTo),
-      description: value.description,
-    };
-    setEvents([...allEvents, newEvent]);
+  // useEffect(() => {
+  //   fetch(baseUrl)
+  //     .then(response => response.json())
+  //     .then(res => {
+  //       setEvents(res);
+  //     });
+  // }, []);
+
+  const createEvent = event => {
+    // return fetch(baseUrl, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json;charset=utf-8',
+    //   },
+    //   body: JSON.stringify(event),
+    // });
+    setEvents([...allEvents, event]);
   };
 
   return (
