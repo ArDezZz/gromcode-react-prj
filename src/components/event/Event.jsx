@@ -24,3 +24,8 @@ const Event = ({ height, marginTop, title, time }) => {
 };
 
 export default Event;
+//algo deleteEvent
+//1.click on target event
+//2.read a title event
+//3.find id array of events
+//4.delete from array

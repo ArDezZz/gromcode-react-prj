@@ -3,13 +3,20 @@ import React, { useState } from 'react';
 import Navigation from './../navigation/Navigation';
 import Week from '../week/Week';
 import Sidebar from '../sidebar/Sidebar';
-import events from '../../gateway/events';
 
 import './calendar.scss';
 import Modal from '../modal/Modal';
 
 const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
-  const [allEvents, setEvents] = useState([]);
+  const [allEvents, setEvents] = useState([
+    {
+      id: 1,
+      title: 'Go to the gym',
+      description: 'some text here',
+      dateFrom: new Date(2022, 6, 4, 10, 15),
+      dateTo: new Date(2022, 6, 4, 12, 0),
+    },
+  ]);
 
   const createEvent = value => {
     const newEvent = {

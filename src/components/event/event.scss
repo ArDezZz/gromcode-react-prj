@@ -3,7 +3,7 @@
   width: 80%;
   background-color: cornflowerblue;
   z-index: 1;
-  border-radius: 8px;
+  background-color: #27282c;
   padding: 8px;
   color: #fff;
 
@@ -17,16 +17,22 @@
 
   &:hover {
     font-weight: bold;
-    background-color: red;
+    box-shadow: 0 0 35px #1e9bff;
+    background-color: #1e9bff;
+    border: 2px solid black;
   }
 }
 
 .delete-event-btn {
   display: block;
-  margin-top: 5px;
+  text-align: center;
+  color: #fff;
+  margin: 8px 5px;
   padding: 5px 10px;
   cursor: pointer;
-  border: none;
+  box-shadow: 0 0 35px #1e9bff;
+  background-color: #1e9bff;
+  border: 2px solid black;
   border-radius: 10px;
   font-size: 15px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
