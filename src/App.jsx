@@ -10,12 +10,6 @@ const App = () => {
   const [weekStartDate, setWeekStartDate] = useState(new Date());
   const [isVisible, changeEventVisible] = useState(false);
 
-  // algo CreateEvent
-  //1 создаем функцию createEvent в App
-  //2 прокидываем функцию в modal
-  //3 считываем данные с modal
-  //4 пушим созданный объект в events
-
   const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
 
   const nextWeekChange = () => {

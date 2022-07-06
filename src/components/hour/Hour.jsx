@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './hour.scss';
 import Event from '../event/Event';
 import { formatMins } from '../../../src/utils/dateUtils.js';
 

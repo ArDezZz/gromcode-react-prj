@@ -29,3 +29,9 @@ export default Event;
 //2.read a title event
 //3.find which event have title event in  array of events
 //4.delete from array
+
+// algo CreateEvent
+//1 создаем функцию createEvent в App
+//2 прокидываем функцию в modal
+//3 считываем данные с modal
+//4 пушим созданный объект в events
