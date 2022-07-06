@@ -7,7 +7,7 @@ import Sidebar from '../sidebar/Sidebar';
 import './calendar.scss';
 import Modal from '../modal/Modal';
 
-const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
+const Calendar = ({ weekDates, isVisible, showCreateMenu, weekStartDate }) => {
   const [allEvents, setEvents] = useState([
     {
       id: 1,
