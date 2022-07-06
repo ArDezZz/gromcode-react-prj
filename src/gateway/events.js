@@ -27,13 +27,6 @@ const events = [
     dateFrom: new Date(2022, 6, 7, 10, 30),
     dateTo: new Date(2022, 6, 7, 11, 0),
   },
-  {
-    id: 5,
-    title: 'Something',
-    description: 'also',
-    dateFrom: new Date(),
-    dateTo: new Date(2022, 6, 4, 14, 30),
-  },
 ];
 
 export default events;

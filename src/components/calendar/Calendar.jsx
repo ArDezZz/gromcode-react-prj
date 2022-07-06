@@ -8,8 +8,20 @@ import events from '../../gateway/events';
 import './calendar.scss';
 import Modal from '../modal/Modal';
 
-const Calendar = ({ weekDates, isVisible, showCreateMenu, createEvent }) => {
-  const [allEvents, setEvents] = useState(events);
+const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
+  const [allEvents, setEvents] = useState([]);
+
+  const createEvent = value => {
+    const newEvent = {
+      id: Math.random(),
+      title: value.title,
+      date: new Date(value.date),
+      dateFrom: new Date(value.dateFrom),
+      dateTo: new Date(value.dateTo),
+      description: value.description,
+    };
+    setEvents([...allEvents, newEvent]);
+  };
 
   return (
     <section className="calendar">

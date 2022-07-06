@@ -3,7 +3,7 @@ import Header from './components/header/Header.jsx';
 import Calendar from './components/calendar/Calendar.jsx';
 
 import { getWeekStartDate, generateWeekRange } from '../src/utils/dateUtils.js';
-import events from './gateway/events.js';
+
 import './common.scss';
 
 const App = () => {
@@ -15,18 +15,6 @@ const App = () => {
   //2 прокидываем функцию в modal
   //3 считываем данные с modal
   //4 пушим созданный объект в events
-
-  const createEvent = value => {
-    const newEvent = {
-      id: Math.random(),
-      title: value.title,
-      date: new Date(value.date),
-      dateFrom: new Date(value.dateFrom),
-      dateTo: new Date(value.dateTo),
-      description: value.description,
-    };
-    events.push(newEvent);
-  };
 
   const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
 
@@ -57,12 +45,7 @@ const App = () => {
         todayWeek={todayWeek}
         showCreateMenu={showCreateMenu}
       />
-      <Calendar
-        weekDates={weekDates}
-        isVisible={isVisible}
-        showCreateMenu={showCreateMenu}
-        createEvent={createEvent}
-      />
+      <Calendar weekDates={weekDates} isVisible={isVisible} showCreateMenu={showCreateMenu} />
     </>
   );
 };
