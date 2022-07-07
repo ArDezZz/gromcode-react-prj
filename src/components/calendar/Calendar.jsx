@@ -11,23 +11,23 @@ const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
   const [allEvents, setEvents] = useState([]);
   const baseUrl = 'https://62c5975d134fa108c256f212.mockapi.io/Calendar';
 
-  // useEffect(() => {
-  //   fetch(baseUrl)
-  //     .then(response => response.json())
-  //     .then(res => {
-  //       setEvents(res);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch(baseUrl)
+      .then(response => response.json())
+      .then(res => {
+        setEvents(res);
+      });
+  }, []);
 
   const createEvent = event => {
-    // return fetch(baseUrl, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json;charset=utf-8',
-    //   },
-    //   body: JSON.stringify(event),
-    // });
-    setEvents([...allEvents, event]);
+    return fetch(baseUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify(event),
+    });
+    // setEvents([...allEvents, event]);
   };
 
   return (
