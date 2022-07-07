@@ -1,6 +1,6 @@
 import React from 'react';
 import './modal.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Modal = ({ showCreateMenu, createEvent }) => {
   const [formDatas, setFormData] = useState({

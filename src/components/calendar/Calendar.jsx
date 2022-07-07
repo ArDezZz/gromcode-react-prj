@@ -20,14 +20,14 @@ const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
   }, []);
 
   const createEvent = event => {
-    return fetch(baseUrl, {
+    fetch(baseUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify(event),
     });
-    // setEvents([...allEvents, event]);
+    return setEvents([...allEvents, event]);
   };
 
   return (

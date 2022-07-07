@@ -7,8 +7,6 @@ const Hour = ({ dataHour, hourEvents }) => {
   return (
     <div className="calendar__time-slot" data-time={dataHour + 1}>
       {hourEvents.map(({ id, dateFrom, dateTo, title }) => {
-        console.log(new Date(dateFrom));
-        console.log(new Date(dateTo));
         const eventStart = `${new Date(dateFrom).getHours()}:${formatMins(
           new Date(dateFrom).getMinutes(),
         )}`;
