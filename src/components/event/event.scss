@@ -1,18 +1,22 @@
 .event {
   position: absolute;
   width: 80%;
-  background-color: cornflowerblue;
   z-index: 1;
   background-color: #27282c;
   padding: 8px;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
   &__title {
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
 
   &:hover {

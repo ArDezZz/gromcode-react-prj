@@ -53,13 +53,14 @@
     margin-left: auto;
     border: none;
     color: #fff;
-    background-color: cornflowerblue;
+    background-color: #27282c;
     border: none;
     padding: 8px 16px;
-    border-radius: 8px;
     cursor: pointer;
     &:hover {
-      background-color: red;
+      box-shadow: 0 0 35px #1e9bff;
+      background-color: #1e9bff;
+      border: 2px solid black;
     }
   }
 }
