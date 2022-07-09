@@ -33,7 +33,8 @@ const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
   const deleteEvent = eventId => {
     fetch(`${baseUrl}/${eventId}`, {
       method: 'DELETE',
-    }).then(resposne => resposne.json());
+    });
+    return setEvents([...allEvents]);
   };
 
   return (
