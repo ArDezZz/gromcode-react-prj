@@ -30,6 +30,13 @@ const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
     return setEvents([...allEvents, event]);
   };
 
+  const deleteEvent = eventId => {
+    fetch(`${baseUrl}/${eventId}`, {
+      method: 'DELETE',
+    }).then(resposne => resposne.json());
+    return setEvents([...allEvents, event]);
+  };
+
   return (
     <section className="calendar">
       {isVisible ? <Modal createEvent={createEvent} showCreateMenu={showCreateMenu} /> : null}
@@ -37,7 +44,7 @@ const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
       <div className="calendar__body">
         <div className="calendar__week-container">
           <Sidebar />
-          <Week weekDates={weekDates} events={allEvents} />
+          <Week weekDates={weekDates} events={allEvents} deleteEvent={deleteEvent} />
         </div>
       </div>
     </section>
