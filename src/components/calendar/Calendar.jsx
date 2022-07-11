@@ -26,15 +26,33 @@ const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify(event),
-    });
+    })
+      .then(response => {
+        if (response.status === 201) {
+          return response.json();
+        }
+        throw new Error();
+      })
+      .catch(() => {
+        alert("Internal Server Error. Can't display events");
+      });
     return setEvents([...allEvents, event]);
   };
 
   const deleteEvent = eventId => {
     fetch(`${baseUrl}/${eventId}`, {
       method: 'DELETE',
-    });
-    return setEvents([...allEvents]);
+    })
+      .then(response => {
+        if (response.status === 200) {
+          return response.json();
+        }
+        throw new Error();
+      })
+      .catch(() => {
+        alert("Internal Server Error. Can't display events");
+      });
+    return setEvents(allEvents.filter(event => event.id !== eventId));
   };
 
   return (
