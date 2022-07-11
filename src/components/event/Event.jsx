@@ -3,12 +3,12 @@ import EventPop from './EventPop';
 import './event.scss';
 
 const Event = ({ height, marginTop, title, time, id, deleteEvent }) => {
+  const [hideStatus, setHideStatus] = useState(true);
   const eventStyle = {
     height,
     marginTop,
   };
   console.log(`eventid - ${id}`);
-  const [hideStatus, setHideStatus] = useState(true);
 
   const deleteEventMenu = () => {
     setHideStatus(!hideStatus);
