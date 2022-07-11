@@ -12,12 +12,21 @@ const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
   const baseUrl = 'https://62c5975d134fa108c256f212.mockapi.io/Calendar';
 
   useEffect(() => {
-    fetch(baseUrl)
-      .then(response => response.json())
-      .then(res => {
-        setEvents(res);
-      });
+    fetchEventsList().then(res => {
+      setEvents(res);
+    });
   }, []);
+
+  const fetchEventsList = () =>
+    fetch(baseUrl)
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error();
+        }
+      })
+      .catch(() => alert("Internal Server Error. Can't display events"));
 
   const createEvent = event => {
     fetch(baseUrl, {
