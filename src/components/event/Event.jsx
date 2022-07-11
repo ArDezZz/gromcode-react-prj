@@ -7,7 +7,7 @@ const Event = ({ height, marginTop, title, time, id, deleteEvent }) => {
     height,
     marginTop,
   };
-  console.log(id);
+  console.log(`eventid - ${id}`);
   const [hideStatus, setHideStatus] = useState(true);
 
   const deleteEventMenu = () => {
