@@ -3,6 +3,7 @@
   height: 60px;
   padding: 0 48px;
   align-items: center;
+  background: linear-gradient(to right, #4280fb, #15f4be);
 }
 
 .create-event-btn {
@@ -12,7 +13,7 @@
   color: white;
   letter-spacing: 0.1em;
   &:hover {
-    box-shadow: 0 0 35px #1e9bff;
+    box-shadow: 0 0 35px #27282c;
     background-color: #1e9bff;
   }
   &__icon {
@@ -29,8 +30,7 @@
     color: white;
     &:hover {
       background-color: #1e9bff;
-
-      box-shadow: 0 0 35px #1e9bff;
+      box-shadow: 0 0 35px #27282c;
     }
   }
 
