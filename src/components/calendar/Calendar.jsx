@@ -24,7 +24,7 @@ const Calendar = ({ weekDates, isVisible, showModalMenu }) => {
       .catch(() => alert("Internal Server Error. Can't display events"));
 
   useEffect(() => {
-    return fetchEventsList;
+    fetchEventsList();
   }, []);
 
   const createEvent = event => {
@@ -41,11 +41,10 @@ const Calendar = ({ weekDates, isVisible, showModalMenu }) => {
         }
         throw new Error();
       })
+      .then(fetchEventsList())
       .catch(() => {
         alert("Internal Server Error. Can't display events");
       });
-
-    fetchEventsList();
   };
 
   const deleteEvent = eventId => {
