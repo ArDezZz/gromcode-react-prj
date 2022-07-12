@@ -14,23 +14,22 @@ const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
   //создаем ивент и отправляем на сервер
   //делаем запрос ивентов с сервера
   //записываем ивенты в стейт
-  // useEffect(() => {
-  //   fetchEventsList().then(res => {
-  //     setEvents(res);
-  //   });
-  // }, []);
 
   const fetchEventsList = () =>
     fetch(baseUrl)
-      .then(response => response.json())
-      .then(res => setEvents(res));
-  //   if (response.ok) {
-  //     return response.json();
-  //   } else {
-  //     throw new Error();
-  //   }
-  // })
-  // .catch(() => alert("Internal Server Error. Can't display events"));
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error();
+        }
+      })
+      .then(res => setEvents(res))
+      .catch(() => alert("Internal Server Error. Can't display events"));
+
+  useEffect(() => {
+    return fetchEventsList;
+  }, []);
 
   const createEvent = event => {
     fetch(baseUrl, {
