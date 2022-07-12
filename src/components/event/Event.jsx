@@ -8,7 +8,6 @@ const Event = ({ height, marginTop, title, time, id, deleteEvent }) => {
     height,
     marginTop,
   };
-  console.log(`eventid - ${id}`);
 
   const deleteEventMenu = () => {
     setHideStatus(!hideStatus);
@@ -29,14 +28,3 @@ const Event = ({ height, marginTop, title, time, id, deleteEvent }) => {
 };
 
 export default Event;
-//algo deleteEvent
-//1.click on target event
-//2.read a title event
-//3.find which event have title event in  array of events
-//4.delete from array
-
-// algo CreateEvent
-//1 создаем функцию createEvent в App
-//2 прокидываем функцию в modal
-//3 считываем данные с modal
-//4 пушим созданный объект в events
