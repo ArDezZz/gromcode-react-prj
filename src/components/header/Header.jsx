@@ -1,9 +1,10 @@
 import React from 'react';
 import moment from 'moment';
-
+import PropTypes from 'prop-types';
 import './header.scss';
+import Navigation from '../navigation/Navigation';
 
-const Header = ({ nextWeek, prevWeek, todayWeek, weekDates, showCreateMenu }) => {
+const Header = ({ nextWeek, prevWeek, todayWeek, weekDates, showModalMenu }) => {
   const getWeekMonthString = weekDates => {
     const weekStart = weekDates[0];
     const weekEnd = weekDates[weekDates.length - 1];
@@ -16,7 +17,7 @@ const Header = ({ nextWeek, prevWeek, todayWeek, weekDates, showCreateMenu }) =>
 
   return (
     <header className="header">
-      <button className="button create-event-btn" onClick={showCreateMenu}>
+      <button className="button create-event-btn" onClick={showModalMenu}>
         <i className="fas fa-plus create-event-btn__icon"></i>Create
       </button>
       <div className="navigation">
@@ -36,3 +37,10 @@ const Header = ({ nextWeek, prevWeek, todayWeek, weekDates, showCreateMenu }) =>
 };
 
 export default Header;
+Navigation.propTypes = {
+  weekDates: PropTypes.array.isRequired,
+  nextWeek: PropTypes.func,
+  prevWeek: PropTypes.func,
+  todayWeek: PropTypes.func,
+  showCreateMenu: PropTypes.func,
+};

@@ -1,8 +1,8 @@
 import React from 'react';
 import './modal.scss';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-const Modal = ({ showCreateMenu, createEvent }) => {
+const Modal = ({ showModalMenu, createEvent }) => {
   const [formDatas, setFormData] = useState({
     title: '',
     description: '',
@@ -27,14 +27,14 @@ const Modal = ({ showCreateMenu, createEvent }) => {
     };
 
     createEvent(newEvent);
-    showCreateMenu();
+    showModalMenu();
   };
 
   return (
     <div className="modal overlay">
       <div className="modal__content">
         <div className="create-event">
-          <button className="create-event__close-btn" onClick={showCreateMenu}>
+          <button className="create-event__close-btn" onClick={showModalMenu}>
             +
           </button>
           <form className="event-form" onSubmit={handleAddTask}>

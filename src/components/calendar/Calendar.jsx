@@ -7,13 +7,9 @@ import Sidebar from '../sidebar/Sidebar';
 import './calendar.scss';
 import Modal from '../modal/Modal';
 
-const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
+const Calendar = ({ weekDates, isVisible, showModalMenu }) => {
   const [allEvents, setEvents] = useState([]);
   const baseUrl = 'https://62c5975d134fa108c256f212.mockapi.io/Calendar';
-  //algo
-  //создаем ивент и отправляем на сервер
-  //делаем запрос ивентов с сервера
-  //записываем ивенты в стейт
 
   const fetchEventsList = () =>
     fetch(baseUrl)
@@ -70,7 +66,7 @@ const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
 
   return (
     <section className="calendar">
-      {isVisible ? <Modal createEvent={createEvent} showCreateMenu={showCreateMenu} /> : null}
+      {isVisible ? <Modal createEvent={createEvent} showModalMenu={showModalMenu} /> : null}
       <Navigation weekDates={weekDates} />
       <div className="calendar__body">
         <div className="calendar__week-container">

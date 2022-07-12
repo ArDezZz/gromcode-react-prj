@@ -26,7 +26,7 @@ const App = () => {
     setWeekStartDate(new Date());
   };
 
-  const showCreateMenu = () => {
+  const showModalMenu = () => {
     changeEventVisible(!isVisible);
   };
 
@@ -37,9 +37,9 @@ const App = () => {
         nextWeek={nextWeekChange}
         prevWeek={prevWeekChange}
         todayWeek={todayWeek}
-        showCreateMenu={showCreateMenu}
+        showModalMenu={showModalMenu}
       />
-      <Calendar weekDates={weekDates} isVisible={isVisible} showCreateMenu={showCreateMenu} />
+      <Calendar weekDates={weekDates} isVisible={isVisible} showModalMenu={showModalMenu} />
     </>
   );
 };
