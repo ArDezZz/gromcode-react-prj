@@ -16,9 +16,14 @@ const Event = ({ height, marginTop, title, time, id, deleteEvent }) => {
 
   return (
     <div style={eventStyle} className="event" onClick={deleteEventMenu}>
-      <div className="event__title">{title}</div>
-      <div className="event__time">{time}</div>
-      {!hideStatus ? <EventPop id={id} deleteEvent={deleteEvent} /> : null}
+      {!hideStatus ? (
+        <EventPop id={id} deleteEvent={deleteEvent} />
+      ) : (
+        <>
+          <div className="event__title">{title}</div>
+          <div className="event__time">{time}</div>
+        </>
+      )}
     </div>
   );
 };
