@@ -46,6 +46,7 @@ const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
         alert("Internal Server Error. Can't display events");
       });
     // setEvents([...allEvents, event]);
+
     fetchEventsList().then(res => setEvents([...res, event]));
   };
 
