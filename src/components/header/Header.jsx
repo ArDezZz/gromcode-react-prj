@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import './header.scss';
-import Navigation from '../navigation/Navigation';
 
 const Header = ({ nextWeek, prevWeek, todayWeek, weekDates, showModalMenu }) => {
   const getWeekMonthString = weekDates => {
@@ -37,7 +36,8 @@ const Header = ({ nextWeek, prevWeek, todayWeek, weekDates, showModalMenu }) => 
 };
 
 export default Header;
-Navigation.propTypes = {
+
+Header.propTypes = {
   weekDates: PropTypes.array.isRequired,
   nextWeek: PropTypes.func,
   prevWeek: PropTypes.func,

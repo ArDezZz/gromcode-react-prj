@@ -1,6 +1,7 @@
 import React from 'react';
-import './modal.scss';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
+import './modal.scss';
 
 const Modal = ({ showModalMenu, createEvent }) => {
   const [formDatas, setFormData] = useState({
@@ -83,3 +84,8 @@ const Modal = ({ showModalMenu, createEvent }) => {
 };
 
 export default Modal;
+
+Modal.propTypes = {
+  showModalMenu: PropTypes.func,
+  createEvent: PropTypes.func,
+};

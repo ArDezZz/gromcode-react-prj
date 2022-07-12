@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './hour.scss';
 import Event from '../event/Event';
-import { formatMins } from '../../../src/utils/dateUtils.js';
 import RedLine from './RedLine';
+import { formatMins } from '../../../src/utils/dateUtils.js';
+import PropTypes from 'prop-types';
+import './hour.scss';
 
 const Hour = ({ dataHour, hourEvents, deleteEvent, day }) => {
   const [redlineDatas, setRedlineDatas] = useState({
@@ -54,3 +55,10 @@ const Hour = ({ dataHour, hourEvents, deleteEvent, day }) => {
 };
 
 export default Hour;
+
+Hour.propTypes = {
+  dataHour: PropTypes.number,
+  hourEvents: PropTypes.array,
+  deleteEvent: PropTypes.func,
+  day: PropTypes.number,
+};

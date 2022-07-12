@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import './event.scss';
 
 const EventPop = ({ id, deleteEvent }) => {
@@ -17,3 +17,8 @@ const EventPop = ({ id, deleteEvent }) => {
 };
 
 export default EventPop;
+
+EventPop.proptypes = {
+  id: PropTypes.string,
+  deleteEvent: PropTypes.func,
+};

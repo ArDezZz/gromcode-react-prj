@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const RedLine = ({ isShow, top }) =>
   isShow ? (
@@ -8,3 +9,8 @@ const RedLine = ({ isShow, top }) =>
   ) : null;
 
 export default RedLine;
+
+RedLine.propTypes = {
+  isShow: PropTypes.bool,
+  top: PropTypes.number,
+};
