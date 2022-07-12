@@ -41,7 +41,7 @@ const Calendar = ({ weekDates, isVisible, showModalMenu }) => {
         }
         throw new Error();
       })
-      .then(fetchEventsList())
+      .then(res => fetchEventsList())
       .catch(() => {
         alert("Internal Server Error. Can't display events");
       });
