@@ -10,23 +10,27 @@ import Modal from '../modal/Modal';
 const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
   const [allEvents, setEvents] = useState([]);
   const baseUrl = 'https://62c5975d134fa108c256f212.mockapi.io/Calendar';
-
-  useEffect(() => {
-    fetchEventsList().then(res => {
-      setEvents(res);
-    });
-  }, []);
+  //algo
+  //создаем ивент и отправляем на сервер
+  //делаем запрос ивентов с сервера
+  //записываем ивенты в стейт
+  // useEffect(() => {
+  //   fetchEventsList().then(res => {
+  //     setEvents(res);
+  //   });
+  // }, []);
 
   const fetchEventsList = () =>
     fetch(baseUrl)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error();
-        }
-      })
-      .catch(() => alert("Internal Server Error. Can't display events"));
+      .then(response => response.json())
+      .then(res => setEvents(res));
+  //   if (response.ok) {
+  //     return response.json();
+  //   } else {
+  //     throw new Error();
+  //   }
+  // })
+  // .catch(() => alert("Internal Server Error. Can't display events"));
 
   const createEvent = event => {
     fetch(baseUrl, {
@@ -45,9 +49,8 @@ const Calendar = ({ weekDates, isVisible, showCreateMenu }) => {
       .catch(() => {
         alert("Internal Server Error. Can't display events");
       });
-    // setEvents([...allEvents, event]);
 
-    fetchEventsList().then(res => setEvents([...res, event]));
+    fetchEventsList();
   };
 
   const deleteEvent = eventId => {
