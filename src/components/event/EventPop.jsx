@@ -3,7 +3,6 @@ import React from 'react';
 import './event.scss';
 
 const EventPop = ({ id, deleteEvent }) => {
-  console.log(id);
   const deleteEventHandler = () => {
     deleteEvent(id);
   };
