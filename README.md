@@ -1,6 +1,6 @@
 # React Calendar
 
-### [Site link](https://helpful-bublanina-56db89.netlify.app/)
+### [Site link](https://react-calerndar.netlify.app/)
 
 ### The tech stack is:
 
