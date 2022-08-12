@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import EventPop from './EventPop';
 import './event.scss';
 
-const Event = ({ height, marginTop, title, time, id, deleteEvent }) => {
+const Event = ({ height, marginTop, title, time, id }) => {
   const [hideStatus, setHideStatus] = useState(true);
   const eventStyle = {
     height,
@@ -17,7 +17,7 @@ const Event = ({ height, marginTop, title, time, id, deleteEvent }) => {
   return (
     <div style={eventStyle} className="event" onClick={deleteEventMenu}>
       {!hideStatus ? (
-        <EventPop id={id} deleteEvent={deleteEvent} />
+        <EventPop id={id} />
       ) : (
         <>
           <div className="event__title">{title}</div>

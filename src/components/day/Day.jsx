@@ -3,7 +3,7 @@ import Hour from '../hour/Hour';
 import PropTypes from 'prop-types';
 import './day.scss';
 
-const Day = ({ dataDay, dayEvents, deleteEvent }) => {
+const Day = ({ dataDay, dayEvents }) => {
   const hours = Array(24)
     .fill()
     .map((val, index) => index);
@@ -13,15 +13,7 @@ const Day = ({ dataDay, dayEvents, deleteEvent }) => {
       {hours.map(hour => {
         const hourEvents = dayEvents.filter(event => new Date(event.dateFrom).getHours() === hour);
 
-        return (
-          <Hour
-            day={dataDay}
-            key={dataDay + hour}
-            dataHour={hour}
-            hourEvents={hourEvents}
-            deleteEvent={deleteEvent}
-          />
-        );
+        return <Hour day={dataDay} key={dataDay + hour} dataHour={hour} hourEvents={hourEvents} />;
       })}
     </div>
   );
