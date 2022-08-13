@@ -1,6 +1,6 @@
 const baseUrl = 'https://62ea3d55ad2954632587ae6f.mockapi.io/calendar';
 
-export const fetchEventsList = () =>
+export const fetchEvents = () =>
   fetch(baseUrl)
     .then(response => {
       if (response.ok) {

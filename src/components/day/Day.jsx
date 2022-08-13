@@ -3,7 +3,7 @@ import Hour from '../hour/Hour';
 import PropTypes from 'prop-types';
 import './day.scss';
 
-const Day = ({ dataDay, dayEvents, handleFetchEvents }) => {
+const Day = ({ dataDay, dayEvents, fetchEventsList }) => {
   const hours = Array(24)
     .fill()
     .map((val, index) => index);
@@ -19,7 +19,7 @@ const Day = ({ dataDay, dayEvents, handleFetchEvents }) => {
             key={dataDay + hour}
             dataHour={hour}
             hourEvents={hourEvents}
-            handleFetchEvents={handleFetchEvents}
+            fetchEventsList={fetchEventsList}
           />
         );
       })}
@@ -30,7 +30,7 @@ const Day = ({ dataDay, dayEvents, handleFetchEvents }) => {
 export default Day;
 
 Day.propTypes = {
-  dataDay: PropTypes.number,
+  dataDay: PropTypes.object,
   dayEvents: PropTypes.array,
-  deleteEvent: PropTypes.func,
+  fetchEventsList: PropTypes.func,
 };

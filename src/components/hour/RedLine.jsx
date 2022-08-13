@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const RedLine = ({ isShow, top }) =>
-  isShow ? (
-    <div className="red-line" style={{ top: `${top}px` }}>
-      <span></span>
-    </div>
-  ) : null;
+const RedLine = ({ top }) => (
+  <div className="red-line" style={{ top: `${top}px` }}>
+    <span></span>
+  </div>
+);
 
 export default RedLine;
 

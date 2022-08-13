@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './modal.scss';
 import { createEvent } from '../../gateway/gateway';
 
-const Modal = ({ showModalMenu, handleFetchEvents }) => {
+const Modal = ({ showModalMenu, fetchEventsList }) => {
   const [formDatas, setFormData] = useState({
     title: '',
     description: '',
@@ -28,7 +28,7 @@ const Modal = ({ showModalMenu, handleFetchEvents }) => {
       description,
     };
 
-    createEvent(newEvent).then(handleFetchEvents);
+    createEvent(newEvent).then(fetchEventsList);
     showModalMenu();
   };
 

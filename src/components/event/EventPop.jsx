@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import './event.scss';
 import { deleteEvent } from '../../gateway/gateway';
 
-const EventPop = ({ id, handleFetchEvents }) => {
+const EventPop = ({ id, fetchEventsList }) => {
   const deleteEventHandler = () => {
-    deleteEvent(id).then(handleFetchEvents);
+    deleteEvent(id).then(fetchEventsList);
   };
   return (
     <>

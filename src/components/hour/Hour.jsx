@@ -5,17 +5,15 @@ import { formatMins } from '../../../src/utils/dateUtils.js';
 import PropTypes from 'prop-types';
 import './hour.scss';
 
-const Hour = ({ dataHour, hourEvents, day, handleFetchEvents }) => {
+const Hour = ({ dataHour, hourEvents, day, fetchEventsList }) => {
   const [redlineDatas, setRedlineDatas] = useState({
-    currentHour: new Date().getHours(),
-    currentMinutes: new Date().getMinutes(),
+    redlineMinutes: new Date().getMinutes(),
   });
 
   useEffect(() => {
     const updateRedLineDatas = setInterval(() => {
       setRedlineDatas({
-        currentHour: new Date().getHours(),
-        currentMinutes: new Date().getMinutes(),
+        redlineMinutes: new Date().getMinutes(),
       });
     }, 1000 * 60);
 
@@ -24,12 +22,15 @@ const Hour = ({ dataHour, hourEvents, day, handleFetchEvents }) => {
     };
   }, []);
 
-  const { currentMinutes, currentHour } = redlineDatas;
-  const showRedlineDatas = new Date().getDate() === day && currentHour === dataHour;
+  const { redlineMinutes } = redlineDatas;
+  const isShow =
+    new Date().getDate() === day.getDate() &&
+    new Date().getHours() === dataHour &&
+    new Date().getMonth() === day.getMonth();
 
   return (
     <div className="calendar__time-slot" data-time={dataHour + 1}>
-      <RedLine isShow={showRedlineDatas} top={currentMinutes - 1} />
+      {isShow && <RedLine top={redlineMinutes - 1} />}
       {hourEvents.map(({ id, dateFrom, dateTo, title }) => {
         const eventStart = `${new Date(dateFrom).getHours()}:${formatMins(
           new Date(dateFrom).getMinutes(),
@@ -46,7 +47,7 @@ const Hour = ({ dataHour, hourEvents, day, handleFetchEvents }) => {
             marginTop={new Date(dateFrom).getMinutes()}
             time={`${eventStart} - ${eventEnd}`}
             title={title}
-            handleFetchEvents={handleFetchEvents}
+            fetchEventsList={fetchEventsList}
           />
         );
       })}
@@ -60,5 +61,5 @@ Hour.propTypes = {
   dataHour: PropTypes.number,
   hourEvents: PropTypes.array,
   deleteEvent: PropTypes.func,
-  day: PropTypes.number,
+  day: PropTypes.object,
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Day from '../day/Day';
 import './week.scss';
 
-const Week = ({ weekDates, events, handleFetchEvents }) => {
+const Week = ({ weekDates, events, fetchEventsList }) => {
   return (
     <div className="calendar__week">
       {weekDates.map(dayStart => {
@@ -16,9 +16,9 @@ const Week = ({ weekDates, events, handleFetchEvents }) => {
         return (
           <Day
             key={dayStart.getDate()}
-            dataDay={dayStart.getDate()}
+            dataDay={dayStart}
             dayEvents={dayEvents}
-            handleFetchEvents={handleFetchEvents}
+            fetchEventsList={fetchEventsList}
           />
         );
       })}
