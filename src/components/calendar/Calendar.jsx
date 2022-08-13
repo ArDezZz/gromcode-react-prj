@@ -11,10 +11,7 @@ const Calendar = ({ weekDates, isVisible, showModalMenu }) => {
   const [allEvents, setEvents] = useState([]);
 
   const handleFetchEvents = () => {
-    fetchEventsList().then(res => {
-      console.log(res);
-      return setEvents(res);
-    });
+    fetchEventsList().then(res => setEvents(res));
   };
 
   useEffect(() => {
@@ -30,7 +27,7 @@ const Calendar = ({ weekDates, isVisible, showModalMenu }) => {
       <div className="calendar__body">
         <div className="calendar__week-container">
           <Sidebar />
-          <Week weekDates={weekDates} events={allEvents} />
+          <Week weekDates={weekDates} events={allEvents} handleFetchEvents={handleFetchEvents} />
         </div>
       </div>
     </section>
