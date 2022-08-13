@@ -5,7 +5,7 @@ import { formatMins } from '../../../src/utils/dateUtils.js';
 import PropTypes from 'prop-types';
 import './hour.scss';
 
-const Hour = ({ dataHour, hourEvents, day }) => {
+const Hour = ({ dataHour, hourEvents, day, handleFetchEvents }) => {
   const [redlineDatas, setRedlineDatas] = useState({
     currentHour: new Date().getHours(),
     currentMinutes: new Date().getMinutes(),
@@ -46,6 +46,7 @@ const Hour = ({ dataHour, hourEvents, day }) => {
             marginTop={new Date(dateFrom).getMinutes()}
             time={`${eventStart} - ${eventEnd}`}
             title={title}
+            handleFetchEvents={handleFetchEvents}
           />
         );
       })}

@@ -28,7 +28,7 @@ export const createEvent = event =>
       alert("Internal Server Error. Can't display events");
     });
 
-export const deleteEvent = eventId => {
+export const deleteEvent = eventId =>
   fetch(`${baseUrl}/${eventId}`, {
     method: 'DELETE',
   })
@@ -38,9 +38,6 @@ export const deleteEvent = eventId => {
       }
       throw new Error();
     })
-    .then(fetchEventsList)
     .catch(() => {
       alert("Internal Server Error. Can't display events");
     });
-  return setEvents(allEvents.filter(event => event.id !== eventId));
-};

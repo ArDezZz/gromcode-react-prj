@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './event.scss';
+import { deleteEvent } from '../../gateway/gateway';
 
-const EventPop = ({ id, deleteEvent }) => {
+const EventPop = ({ id, handleFetchEvents }) => {
   const deleteEventHandler = () => {
-    deleteEvent(id);
+    deleteEvent(id).then(handleFetchEvents);
   };
   return (
     <>
