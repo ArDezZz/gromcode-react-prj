@@ -3,12 +3,19 @@ import PropTypes from 'prop-types';
 import Navigation from './../navigation/Navigation';
 import Week from '../week/Week';
 import Sidebar from '../sidebar/Sidebar';
-import { fetchEventsList, createEvent } from '../../gateway/gateway';
+import { fetchEventsList } from '../../gateway/gateway';
 import './calendar.scss';
 import Modal from '../modal/Modal';
 
 const Calendar = ({ weekDates, isVisible, showModalMenu }) => {
   const [allEvents, setEvents] = useState([]);
+
+  const handleFetchEvents = () => {
+    fetchEventsList().then(res => {
+      console.log(res);
+      return setEvents(res);
+    });
+  };
 
   useEffect(() => {
     fetchEventsList().then(res => setEvents(res));
@@ -17,7 +24,7 @@ const Calendar = ({ weekDates, isVisible, showModalMenu }) => {
   return (
     <section className="calendar">
       {isVisible ? (
-        <Modal showModalMenu={showModalMenu} allEvents={allEvents} setEvents={setEvents} />
+        <Modal showModalMenu={showModalMenu} handleFetchEvents={handleFetchEvents} />
       ) : null}
       <Navigation weekDates={weekDates} />
       <div className="calendar__body">
